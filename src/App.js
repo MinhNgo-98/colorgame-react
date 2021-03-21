@@ -64,17 +64,20 @@ export class App extends Component {
 	}
 	playAgain() {
 		let squares = document.querySelectorAll('.square');
-		this.setColors(this.state.num);
 		this.setState(
 			{
 				pickedColor: this.pickColor()
 			},
 			() => {
-				this.setState({ message: '' });
+				this.setState({
+					colors: this.setColors(this.state.num),
+					pickedColor: this.pickColor(),
+					message: ''
+				});
 				document.querySelector('#playAgain').textContent = 'SPIEL STARTEN';
 				document.querySelector('h1').style.removeProperty('background');
 				for (var i = 0; i < squares.length; i++) {
-					squares[i].style.background = this.state.colors[i];
+					squares[i].style.backgroundColor = this.state.colors[i];
 					console.log(this.state.colors[i]);
 				}
 				console.log('Picked color: ' + this.state.pickedColor);
