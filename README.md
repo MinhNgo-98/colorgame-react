@@ -1,4 +1,5 @@
 # Color Guessing Game
+https://colorgame-react.netlify.app
 
 ## Available Scripts
 
